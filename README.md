@@ -593,7 +593,7 @@ Save this file as **mails.json**
 
 The command should display pretty json without error.
 
-Now **zip mails.json with all files set in attached, picture, face and tip fields from mails.json**.
+Now **zip mails.json with all files set in picture and face fields from mails.json**.
 
 :bulb: your archive should be this form
 
