@@ -29,8 +29,9 @@ MailBox Analyzer is an application using [Watson Developer Cloud Java SDK](https
 - [About Watson Developer Cloud services being used in the application](#about-watson-developer-cloud-services-being-used-in-the-application)
 - [Annexes](#annexes)
   * [Run application elsewhere from IBM Cloud](#run-application-elsewhere-from-ibm-cloud)
-     + [Using Resource Group with manual generated service credentials](using-resource-group-with-manual-generated-service-credentials)
-
+     + [Using Resource Group with manual generated service credentials](#using-resource-group-with-manual-generated-service-credentials)
+    + [Using Resource Group with auto generated service credentials](#using-resource-group-with-auto-generated-service-credentials)
+    + [Using Cloud Foundry](#using-cloud-foundry)
 <br>
 
 <!--
@@ -731,7 +732,7 @@ echo "!!!! Resources available in " $(readlink -f $output) " !!!!"
 exit 0;
 ``` 
 
-##### Using Resource Group (Auto-generated service credentials)
+##### Using Resource Group with auto generated service credentials
 
 ```
 #!/bin/bash
