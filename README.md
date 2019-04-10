@@ -100,6 +100,7 @@ Choose your favorite text editor, create a new file, paste the following content
 
 , save it as **vcap.json** and keep it opened.
 
+:information_source: Let's create our 3 Watson services
 
 ![](res/web.png)
 
@@ -129,7 +130,7 @@ Then hit
 
 :thumbsup: this mean that the **Tone Analyzer** service as been successfully instantiate.
 
-Now to access to service credential click on **manage** on top left.
+Now to access service credential, on top left click **manage** .
 
 ![](guiScreenShots/ta5.jpg)
 
@@ -138,6 +139,8 @@ Then click
 ![](guiScreenShots/ta6.jpg)
 
 Copy **API Key:** and paste it in place of **$(TA_APIKEY)** in **vcap.json**
+
+Copy **URL:** and paste it in place of **$(TA_URL)** in **vcap.json**
 
 #### Setup Natural Language Understanding service
 
@@ -163,6 +166,18 @@ Then hit
 
 :thumbsup: this mean that the **Natural Language Understanding** service as been successfully instantiate.
 
+Now to access service credential, on top left click **manage** .
+
+![](guiScreenShots/ta5.jpg)
+
+Then click
+
+![](guiScreenShots/ta6.jpg)
+
+Copy **API Key:** and paste it in place of **$(NLU_APIKEY)** in **vcap.json**
+
+Copy **URL:** and paste it in place of **$(NLU_URL)** in **vcap.json**
+
 #### Setup Visual Recognition service
 
 ![](res/wvc50x.png) **Visual Recognition** find meaning in visual content! Analyze images for scenes, objects, faces, and other content. Choose a default model off the shelf, or create your own custom classifier. Develop smart applications that analyze the visual content of images or video frames to understand what is happening in a scene.
@@ -186,6 +201,18 @@ Then hit
 ![](guiScreenShots/wvc4.jpg)
 
 :thumbsup: this mean that the **Visual Recognition** service as been successfully instantiate.
+
+Now to access service credential, on top left click **manage** .
+
+![](guiScreenShots/ta5.jpg)
+
+Then click
+
+![](guiScreenShots/ta6.jpg)
+
+Copy **API Key:** and paste it in place of **$(WVC_APIKEY)** in **vcap.json**
+
+Copy **URL:** and paste it in place of **$(WVC_URL)** in **vcap.json**
 
 > :checkered_flag: You are done with environment setup. Now at least three Watson services should be created.
 You can check it in your [IBM Cloud Dashboard](https://console.bluemix.net/dashboard/apps).
