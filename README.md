@@ -401,7 +401,7 @@ and unzip it:
 
 	unzip master.zip
 	
-:bulb: If unzip command is not found, feel free to unzip with any GUI tool.	
+:bulb: If unzip command is not found, feel free to unzip with any GUI tool but be sure to unzip in your **home directory**.	
 
 <br>
 
@@ -409,7 +409,7 @@ and unzip it:
 
 	unzip wlp-kernel-19.0.0.2.zip
 
-:bulb: If unzip command is not found, feel free to unzip with any GUI tool.	
+:bulb: If unzip command is not found, feel free to unzip with any GUI tool but be sure to unzip in your **home directory**.
 	
 <br>	
 	
