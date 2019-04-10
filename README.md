@@ -282,7 +282,7 @@ You can check it in your [IBM Cloud Dashboard](https://console.bluemix.net/dashb
 
 * Download and install [IBM Cloud CLI](https://console.bluemix.net/docs/cli/reference/ibmcloud/download_cli.html)  
 * Download and install [curl](https://curl.haxx.se/windows/)
-* Download [jq](https://github.com/stedolan/jq/releases/download/jq-1.5/jq-win64.exe), rename it to **jq** and copy it in your %PATH%.
+* Download [jq](https://github.com/stedolan/jq/releases/download/jq-1.5/jq-win64.exe), rename it to **jq** and copy it in your **%PATH%** or in **%WINDIR%\system32**.
 * Download a [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html) and install it.
 * Download [WAS Liberty Kernel](https://developer.ibm.com/wasdev/downloads/#asset/runtimes-wlp-kernel) to your **home directory**.
 
@@ -290,7 +290,7 @@ You can check it in your [IBM Cloud Dashboard](https://console.bluemix.net/dashb
 
 * Download and install [IBM Cloud CLI](https://console.bluemix.net/docs/cli/reference/ibmcloud/download_cli.html)  
 * **curl** should already be installed. If not, get it from [here](https://curl.haxx.se/dlwiz/?type=bin&os=Mac+OS+X&flav=-&ver=-&cpu=i386)
-* Download [jq](https://github.com/stedolan/jq/releases/download/jq-1.5/jq-osx-amd64), rename it to **jq**, :warning: set its attribute to executable (e.g. **chmod +x**) and copy it in your $PATH.
+* Download [jq](https://github.com/stedolan/jq/releases/download/jq-1.5/jq-osx-amd64), rename it to **jq**, :warning: set its attribute to executable (e.g. **chmod +x**) and copy it in your **$PATH**.
 * Download a [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html) and install it.
 * Download [WAS Liberty Kernel](https://developer.ibm.com/wasdev/downloads/#asset/runtimes-wlp-kernel) to your **home directory**.
 <!--
@@ -301,7 +301,7 @@ You can check it in your [IBM Cloud Dashboard](https://console.bluemix.net/dashb
 
 * Download and install [IBM Cloud CLI](https://console.bluemix.net/docs/cli/reference/ibmcloud/download_cli.html)  
 * Get **curl** from your distribution repository or download and install it from [here](https://curl.haxx.se/dlwiz/?type=bin&os=Linux).
-* Get **jq** from your distribution repository or download it from [here](https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64), rename it to **jq**, :warning: set its attribute to executable (e.g. **chmod +x**) and copy it in your $PATH.
+* Get **jq** from your distribution repository or download it from [here](https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64), rename it to **jq**, :warning: set its attribute to executable (e.g. **chmod +x**) and copy it in your **$PATH**.
 <!--
 * Install **moreutils** package
 -->
@@ -560,10 +560,8 @@ Edit a json file of this form :
   {
     "subject": "paste some text between double quotation marks or set to null",
     "content": "paste some text between double quotation marks or set to null",
-    "attached": "paste a doc|docx|pdf file name between double quotation marks or set to null",
     "picture": "paste a picture file name between double quotation marks or set to null",
-    "face": "paste a picture file name between double quotation marks or set to null",
-    "tip": "paste a picture file name between double quotation marks or set to null"
+    "face": "paste a picture file name between double quotation marks or set to null"
   }
 ]
 ```
@@ -575,18 +573,14 @@ An example for 2 mails with documents and pictures attached :
   {
       "subject": "At UEFA, Mounting Concern About A.C. Milan’s Murky Finances",
       "content": null,
-      "attached": "3.pdf",
       "picture": "pic3.jpg",
-      "face": null,
-      "tip": null
+      "face": null
   },
   {
       "subject": null,
       "content": "At a flea market six years ago, a North Carolina lawyer named Frank Abrams unknowingly bought...",
-      "attached": "4.doc",
       "picture": null,
-      "face": "face4.jpg",
-      "tip": "tip4.jpg"
+      "face": "face4.jpg"
   }
 ]
 ```
@@ -605,13 +599,9 @@ Now **zip mails.json with all files set in attached, picture, face and tip field
 
 ```
 Archive:  mails0.zip
-    testing: 3.doc                    OK
-    testing: 3.pdf                    OK
-    testing: 4.doc                    OK
     testing: face4.jpg                OK
     testing: mails.json               OK
     testing: pic3.jpg                 OK
-    testing: tip4.jpg                 OK
 No errors detected in compressed data of mails0.zip.
 ```
 Now go back to your application and click ![](res/compressed.png) to upload your datas.
