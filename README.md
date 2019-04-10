@@ -19,6 +19,8 @@ MailBox Analyzer is an application using [Watson Developer Cloud Java SDK](https
   * [Check everything is installed properly](#check-everything-is-installed-properly)
   * [Login to IBM Cloud](#login-to-ibm-cloud)  
   * [Install WAS Liberty Kernel](#install-was-liberty-kernel)
+  * [Create defaultServer](#create-defaultserver)
+  * [Configure defaultServer](#configure-defaultserver)
   * [Add application to defaultServer](#add-application-to-defaultserver)
   * [Set environment to access Watson service instances in IBM Cloud](#set-environment-to-access-watson-service-instances-in-ibm-cloud)
   * [Run application](#run-application)
@@ -455,9 +457,7 @@ to configure defaultServer.
 	
 #### Add application to defaultServer
 
-![](res/notepad.png)
-
-![](res/win.png)
+![](res/notepad.png) ![](res/win.png)
 
 Create **wlp/usr/servers/defaultServer/apps/app.war.xml** with the following content:
 ```
@@ -468,7 +468,7 @@ Create **wlp/usr/servers/defaultServer/apps/app.war.xml** with the following con
 ```
 :warning: Substitute **%HOMEPATH%** with the **full path** of your home directory. 
 
-![](res/mac.png) ![](res/tux.png)
+![](res/notepad.png) ![](res/mac.png) ![](res/tux.png)
 
 Create **wlp/usr/servers/defaultServer/apps/app.war.xml** with the following content:
 ```
@@ -487,15 +487,30 @@ Change to code directory
 
 > :information_source: Now if you stand in the correct directory, you should be able to list directories such as **WebContent, src, wlp**. We're going to copy or move **vcap.json** completed earlier and store its content in a **json formatted system environment variable** for our application to read access to our 3 Watson services
 
+First let's format **vcap.json** to fit in one line as required by environment variable syntax
 
-This command should generate a file called **resourcesAG.json** that we're going to store in a environment variable called **VCAP_SERVICES** with the following command:
+	jq -c . vcap.json > vcap-compact.json
+	
+Now create environment variable call VCAP_SERVICES:
 
-	export VCAP_SERVICES=$(cat resourcesAG.json)
+![](res/win.png)
+
+	set /P VCAP_SERVICES=< vcap-compact.json
+
+![](res/mac.png) ![](res/tux.png)
+
+	export VCAP_SERVICES=$(cat vcap-compact.json)
 	
 :bulb: Check the variable with:	
 
-	echo $VCAP_SERVICES	
+![](res/win.png)
+
+	echo %VCAP_SERVICES%
 	
+![](res/mac.png) ![](res/tux.png)
+	
+	echo $VCAP_SERVICES
+
 It should display something like:
 
 ```	
@@ -503,18 +518,26 @@ It should display something like:
 ```	
 > :checkered_flag: You should now be ready to run the application.
 
+<br>
+
 #### Run application
 
-Come back in your home directory
+Come back in your home directory and start WAS Liberty Kernel defaultServer
 
-	cd..
+![](res/win.png)
 
-and start WAS Liberty Kernel defaultServer
+	cd %HOMEPATH%
+	wlp\bin\server.bat start defaultServer
 
+![](res/mac.png) ![](res/tux.png)
+
+	cd $HOME
 	wlp/bin/server start defaultServer
 
 ![](res/web.png)
 Then browse [app](http://localhost:9080/app)
+
+> :bulb: Ctrl + Click on links below to open them in new tab and keep the tutorial tab opened.
 
 When app is loaded, click on ![](res/envelope.png) to upload sample attached documents in Discovery Collection and get sample mails.
 
