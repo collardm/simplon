@@ -45,6 +45,8 @@ A sample demo of the application with a mailbox analysis *may be* available [her
 
 #### Create a credential file
 
+![](res/notepad.png)
+
 :information_source: Let's store credentials for our 3 services in a json file which our application will use to be granted access.
 
 Choose your favorite text editor, create a new file, paste the following content in it:
@@ -96,7 +98,7 @@ Choose your favorite text editor, create a new file, paste the following content
 }
 ```
 
- and save it as **vcap.json**
+, save it as **vcap.json** and keep it opened.
 
 
 ![](res/web.png)
@@ -127,8 +129,7 @@ Then hit
 
 :thumbsup: this mean that the **Tone Analyzer** service as been successfully instantiate.
 
-<!--
-To be ready to use  **Tone Analyzer** instance need a new credential to be created. So click on **Service credentials** available on top left under the menu:
+Now to access to service credential click on **manage** on top left.
 
 ![](guiScreenShots/ta5.jpg)
 
@@ -136,14 +137,7 @@ Then click
 
 ![](guiScreenShots/ta6.jpg)
 
-Keep default setting
-
-![](guiScreenShots/ta7.jpg)
-
-and hit 
-
-![](guiScreenShots/ta8.jpg)
--->
+Copy **API Key:** and paste it in place of **$(TA_APIKEY)** in **vcap.json**
 
 #### Setup Natural Language Understanding service
 
