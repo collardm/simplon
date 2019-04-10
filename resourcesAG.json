@@ -1,0 +1,45 @@
+{
+    "b75d0d61-360f-42f3-baa5-953c936110ac": {
+        "credentials": [
+          {
+        "id": "2f8a81c0-8eaf-4913-9983-58de02398f2a",
+        "name": "Auto-generated service credentials",
+        "apikey": "4Pe0RUDXt_1EBsrWk60PxbrxY7u-Zc1dRcbD_8n6jQet",
+        "url": "https://gateway.watsonplatform.net/tone-analyzer/api",
+        "role": "Manager"
+          }
+        ],
+        "service": "tone-analyzer",
+        "region": "us-south",
+        "instance": "Tone Analyzer-fs"
+      },
+      "771408bb-d479-409d-90cf-762bac34bd47": {
+        "credentials": [
+          {
+        "id": "3a194377-2ec8-4a5e-b6a8-a57c551af48b",
+        "name": "Auto-generated service credentials",
+        "apikey": "210l8T-InTbjpyFG7BUoonNTGjVRAgdFUsyPXPfITNnk",
+        "url": "https://gateway.watsonplatform.net/natural-language-understanding/api",
+        "role": "Manager"
+          }
+        ],
+        "service": "natural-language-understanding",
+        "region": "us-south",
+        "instance": "Natural Language Understanding-qf"
+      },
+      "40d26948-5fc4-4a59-828e-e44d211cce3e": {
+        "credentials": [
+          {
+        "id": "e8357b44-ca94-403f-9e6d-bc0b5b44af26",
+        "name": "Auto-generated service credentials",
+        "apikey": "M6WC_MW-SRs_sppmIk0yIkiYLwCPF-JwardYBjzpn5Oh",
+        "url": "https://gateway.watsonplatform.net/visual-recognition/api",
+        "role": "Manager"
+          }
+        ],
+        "service": "watson-vision-combined",
+        "region": "us-south",
+        "instance": "Visual Recognition-gd"
+      }
+}
+
