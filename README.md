@@ -514,7 +514,7 @@ Now create environment variable call VCAP_SERVICES:
 It should display something like:
 
 ```	
-{ "d85669d6-1e12-468c-b64e-2cc429e68142": { "credentials": [ { "id": "582d5c6f......
+{"0":{"credentials":[{"id":"0","name":"Auto-generated service credentials","apikey":"4Pe0RUDXt......
 ```	
 > :checkered_flag: You should now be ready to run the application.
 
