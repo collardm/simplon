@@ -9,6 +9,7 @@ MailBox Analyzer is an application using [Watson Developer Cloud Java SDK](https
 - [Application Flow](#application-flow)
 
 - [Setup environment in IBM Cloud](#setup-environment-in-ibm-cloud)
+  * [Create a credential file](#create-a-credential-file)
   * [Setup Tone Analyzer service](#setup-tone-analyzer-service)
   * [Setup Natural Language Understanding service](#setup-natural-language-understanding-service)
   * [Setup Visual Recognition service](#setup-visual-recognition-service)  
@@ -17,7 +18,7 @@ MailBox Analyzer is an application using [Watson Developer Cloud Java SDK](https
   * [Install needed softwares](#install-needed-softwares)
   * [Check everything is installed properly](#check-everything-is-installed-properly)
   * [Login to IBM Cloud](#login-to-ibm-cloud)  
-  * [Install WAS Liberty Kernel](#Install-was-liberty-kernel)
+  * [Install WAS Liberty Kernel](#install-was-liberty-kernel)
   * [Add application to defaultServer](#add-application-to-defaultserver)
   * [Set environment to access Watson service instances in IBM Cloud](#set-environment-to-access-watson-service-instances-in-ibm-cloud)
   * [Run application](#run-application)
@@ -100,11 +101,15 @@ Choose your favorite text editor, create a new file, paste the following content
 
 , save it as **vcap.json** and keep it opened.
 
+<br>
+
 :information_source: Let's create our 3 Watson services
 
 ![](res/web.png)
 
 Ctrl + Click on [IBM Cloud Catalog](https://console.bluemix.net/catalog/?category=ai)
+
+<br>
 
 #### Setup Tone Analyzer service
 
@@ -142,6 +147,8 @@ Copy **API Key:** and paste it in place of **$(TA_APIKEY)** in **vcap.json**
 
 Copy **URL:** and paste it in place of **$(TA_URL)** in **vcap.json**
 
+<br>
+
 #### Setup Natural Language Understanding service
 
 ![](res/nlu50x.png) **Natural Language Understanding** analyze text to extract meta-data from content such as concepts, entities, emotion, relations, sentiment and more.
@@ -177,6 +184,8 @@ Then click
 Copy **API Key:** and paste it in place of **$(NLU_APIKEY)** in **vcap.json**
 
 Copy **URL:** and paste it in place of **$(NLU_URL)** in **vcap.json**
+
+<br>
 
 #### Setup Visual Recognition service
 
@@ -273,7 +282,7 @@ You can check it in your [IBM Cloud Dashboard](https://console.bluemix.net/dashb
 * Download and install [curl](https://curl.haxx.se/windows/)
 * Download [jq](https://github.com/stedolan/jq/releases/download/jq-1.5/jq-win64.exe), rename it to **jq** and copy it in your %PATH%.
 * Download a [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html) and install it.
-* Download [WAS Liberty Kernel](https://developer.ibm.com/wasdev/downloads/#asset/runtimes-wlp-kernel).
+* Download [WAS Liberty Kernel](https://developer.ibm.com/wasdev/downloads/#asset/runtimes-wlp-kernel) to your **home directory**.
 
 ![](res/mac.png)
 
@@ -281,7 +290,7 @@ You can check it in your [IBM Cloud Dashboard](https://console.bluemix.net/dashb
 * **curl** should already be installed. If not, get it from [here](https://curl.haxx.se/dlwiz/?type=bin&os=Mac+OS+X&flav=-&ver=-&cpu=i386)
 * Download [jq](https://github.com/stedolan/jq/releases/download/jq-1.5/jq-osx-amd64), rename it to **jq**, :warning: set its attribute to executable (e.g. **chmod +x**) and copy it in your $PATH.
 * Download a [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html) and install it.
-* Download [WAS Liberty Kernel](https://developer.ibm.com/wasdev/downloads/#asset/runtimes-wlp-kernel).
+* Download [WAS Liberty Kernel](https://developer.ibm.com/wasdev/downloads/#asset/runtimes-wlp-kernel) to your **home directory**.
 <!--
 * Download [sponge](https://github.com/bpshparis/CP2019/blob/master/osxtools/sponge) :warning: set its attribute to executable (e.g. **chmod +x**) and copy it in your $PATH.
 -->
@@ -295,14 +304,29 @@ You can check it in your [IBM Cloud Dashboard](https://console.bluemix.net/dashb
 * Install **moreutils** package
 -->
 * Download a [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html) and install it.
-* Download [WAS Liberty Kernel](https://developer.ibm.com/wasdev/downloads/#asset/runtimes-wlp-kernel).
+* Download [WAS Liberty Kernel](https://developer.ibm.com/wasdev/downloads/#asset/runtimes-wlp-kernel) to your **home directory**.
+
 <br>
 
 #### Check everything is installed properly
 
-![](res/win.png) ![](res/cmd.png) 
+:information_source: Following steps will be achieved  with command line:
 
-![](res/mac.png) ![](res/tux.png) ![](res/term.png) 
+command prompt ![](res/cmd.png)  for ![](res/win.png) 
+
+and shell ![](res/term.png)  for ![](res/mac.png) and ![](res/tux.png) 
+
+:warning: **This command line prompt or shell should remain opened till the end of the tutorial.**
+
+Move to our user home directory:
+
+![](res/win.png)
+
+	cd %HOMEPATH%
+
+![](res/mac.png) ![](res/tux.png)
+
+	cd $HOME
 
 Check ibmcloud command is available:
 
@@ -366,19 +390,39 @@ Let's connect:
 
 Download code
 
-	curl -LO  https://github.com/bpshparis/cp2019/archive/master.zip
+	curl -LO  https://github.com/bpshparis/simplon/archive/master.zip
 
 and unzip it:
 
 	unzip master.zip
+	
+:bulb: If unzip command is not found, feel free to unzip with any GUI tool.	
+
+<br>
 
 #### Install WAS Liberty Kernel
 
 	unzip wlp-kernel-19.0.0.2.zip
+
+:bulb: If unzip command is not found, feel free to unzip with any GUI tool.	
 	
-Create defaultServer
+<br>	
+	
+#### Create defaultServer
+
+![](res/win.png)
+
+	wlp\bin\server.bat create
+
+![](res/mac.png) ![](res/tux.png)
 
 	wlp/bin/server create
+
+<br>	
+
+#### Configure defaultServer
+
+![](res/notepad.png)
 	
 Replace **wlp/usr/servers/defaultServer/server.xml** with this section
 ```
@@ -397,78 +441,52 @@ Replace **wlp/usr/servers/defaultServer/server.xml** with this section
 ```
 then run
 
+![](res/win.png)
+
+	wlp\bin\installUtility.bat install defaultServer
+
+![](res/mac.png) ![](res/tux.png)
+
 	wlp/bin/installUtility install defaultServer
 
 to configure defaultServer.
+
+<br>	
 	
 #### Add application to defaultServer
+
+![](res/notepad.png)
+
+![](res/win.png)
 
 Create **wlp/usr/servers/defaultServer/apps/app.war.xml** with the following content:
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <archive>
-    <dir sourceOnDisk="${APP_CODE_PATH}/WebContent" targetInArchive="/"/>
+    <dir sourceOnDisk="%HOMEPATH%/simplon-master/WebContent" targetInArchive="/"/>
 </archive>
 ```
-:warning: Substitute ${APP_CODE_PATH} with the full path where you unzip application code earlier. 
+:warning: Substitute **%HOMEPATH%** with the **full path** of your home directory. 
+
+![](res/mac.png) ![](res/tux.png)
+
+Create **wlp/usr/servers/defaultServer/apps/app.war.xml** with the following content:
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<archive>
+    <dir sourceOnDisk="$HOME/simplon-master/WebContent" targetInArchive="/"/>
+</archive>
+```
+:warning: Substitute **$HOME** with the **full path** of your home directory. 
 
 #### Set environment to access Watson service instances in IBM Cloud
 
 Change to code directory
 
-	cd CP2019-master
+	cd simplon-master
 
-> Now if you stand in the correct directory, you should be able to list files such as **resourcesAG.sh**. We're going to run **resourcesAG.sh** to get credentials for our 3 service instances from IBM Cloud and store them in a **json formatted system environment variable**.
+> :information_source: Now if you stand in the correct directory, you should be able to list directories such as **WebContent, src, wlp**. We're going to copy or move **vcap.json** completed earlier and store its content in a **json formatted system environment variable** for our application to read access to our 3 Watson services
 
-	./resourcesAG.sh
-	
-	
-```
-{
-	"b75d0d61-360f-42f3-baa5-953c936110ac": {
-	    "credentials": [
-	      {
-		"id": "2f8a81c0-8eaf-4913-9983-58de02398f2a",
-		"name": "Auto-generated service credentials",
-		"apikey": "4Pe0RUDXt_1EBsrWk60PxbrxY7u-Zc1dRcbD_8n6jQet",
-		"url": "https://gateway.watsonplatform.net/tone-analyzer/api",
-		"role": "Manager"
-	      }
-	    ],
-	    "service": "tone-analyzer",
-	    "region": "us-south",
-	    "instance": "Tone Analyzer-fs"
-	  },
-	  "771408bb-d479-409d-90cf-762bac34bd47": {
-	    "credentials": [
-	      {
-		"id": "3a194377-2ec8-4a5e-b6a8-a57c551af48b",
-		"name": "Auto-generated service credentials",
-		"apikey": "210l8T-InTbjpyFG7BUoonNTGjVRAgdFUsyPXPfITNnk",
-		"url": "https://gateway.watsonplatform.net/natural-language-understanding/api",
-		"role": "Manager"
-	      }
-	    ],
-	    "service": "natural-language-understanding",
-	    "region": "us-south",
-	    "instance": "Natural Language Understanding-qf"
-	  },
-	  "40d26948-5fc4-4a59-828e-e44d211cce3e": {
-	    "credentials": [
-	      {
-		"id": "e8357b44-ca94-403f-9e6d-bc0b5b44af26",
-		"name": "Auto-generated service credentials",
-		"apikey": "M6WC_MW-SRs_sppmIk0yIkiYLwCPF-JwardYBjzpn5Oh",
-		"url": "https://gateway.watsonplatform.net/visual-recognition/api",
-		"role": "Manager"
-	      }
-	    ],
-	    "service": "watson-vision-combined",
-	    "region": "us-south",
-	    "instance": "Visual Recognition-gd"
-	  }
-  }
-```
 
 This command should generate a file called **resourcesAG.json** that we're going to store in a environment variable called **VCAP_SERVICES** with the following command:
 
